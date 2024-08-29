@@ -40,3 +40,24 @@
 .read-the-docs {
   color: #888;
 }
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* 
+.menu {
+  background: rgba(27, 27, 27, 0.95); /* Slight transparency for a modern look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  border-radius: 8px; /* Rounded corners */
+} */

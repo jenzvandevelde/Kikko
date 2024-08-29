@@ -15,8 +15,8 @@ const HomePage = () => {
         {/* "I Am" with negative left margin */}
         <p className="text-sm uppercase tracking-widest -ml-40 sm:-ml-56 md:-ml-80">I Am</p>
 
-        {/* "KIKKO" with responsive text size */}
-        <h1 className="text-[12vw] sm:text-[10vw] md:text-[10vw] font-extrabold leading-none">KIKKO</h1>
+        {/* "Jens" with responsive text size */}
+        <h1 className="text-[12vw] sm:text-[10vw] md:text-[10vw] font-extrabold leading-none">JENS</h1>
 
         {/* "A Junior Web Designer" with responsive right margin */}
         <p className="text-sm uppercase tracking-widest ml-36 sm:ml-72 md:ml-72">

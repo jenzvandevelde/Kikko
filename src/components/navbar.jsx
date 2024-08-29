@@ -28,14 +28,43 @@ const Navbar = () => {
         )}
       </button>
 
-      {/* Navigation Links */}
+      {/* Full-Page Sliding Navigation Menu */}
       <div
-        className={`${
-          isMenuOpen ? 'flex' : 'hidden'
-        } md:flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 lg:space-x-8 xl:space-x-12 text-sm uppercase tracking-widest absolute md:relative top-20 md:top-auto left-0 md:left-auto bg-[#1b1b1b] md:bg-transparent w-full md:w-auto px-6 md:px-0 z-20`}
+        className={`fixed top-0 left-0 h-full w-full bg-[#1b1b1b] transform ${
+          isMenuOpen ? 'translate-x-0' : '-translate-x-full'
+        } transition-transform duration-300 ease-in-out z-20 md:hidden flex flex-col justify-center items-center`}
       >
-        
-        <Link to="/projects" className="hover:text-white py-2 md:py-0 border-b md:border-none border-[#2b2b2b] md:border-transparent">
+        <div className="flex flex-col text-sm uppercase tracking-widest text-center w-full">
+          <Link
+            to="/"
+            onClick={toggleMenu}
+            className="hover:text-white py-4 border-b border-[#2b2b2b] mx-auto w-1/4"
+          >
+            Home
+          </Link>
+          <Link
+            to="/project"
+            onClick={toggleMenu}
+            className="hover:text-white py-4 border-b border-[#2b2b2b] mx-auto w-1/4"
+          >
+            Projects
+          </Link>
+          <Link
+            to="/contact"
+            onClick={toggleMenu}
+            className="hover:text-white py-4 mx-auto w-1/2"
+          >
+            Contact
+          </Link>
+        </div>
+      </div>
+
+      {/* Desktop Navigation Links */}
+      <div className="hidden md:flex flex-row space-x-6 lg:space-x-8 xl:space-x-12 text-sm uppercase tracking-widest">
+        <Link
+          to="/project"
+          className="hover:text-white py-2 md:py-0 border-b md:border-none border-[#2b2b2b] md:border-transparent"
+        >
           Projects
         </Link>
         <Link to="/contact" className="hover:text-white py-2 md:py-0">
