@@ -44,6 +44,12 @@ const ProjectPage = ({ scrollToHomePage, scrollToContactPage }) => {
   };
 
   const images = [afbeelding1, afbeelding2, afbeelding3];
+  const titles = ["CRM", "Mobile App", "Website"];
+  const descriptions = [
+    "CRM: This Invoice Program for construction projects combines a Python/Flask backend with a React frontend, uses Azure SQL Edge on Raspberry Pi, imports Excel data, generates PDF invoices, and uploads them to Dropbox.",
+    "Mobile App: This app is built as an Expo project using React Native components, styled with styled-components, managed with Redux, and navigated across multiple screens. It handles user input, authenticates with Firebase, and features a sleek, modern design.",
+    "Website: This project features a REST API built with Node.js, connected to a MySQL database via Prisma, with a React frontend using hooks, Redux for state management, JWT for authentication, and multi-page navigation."
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0f0f0f] via-[#2b2b2b] to-[#1b1b1b] text-white relative flex flex-col justify-center items-center overflow-hidden px-8 md:px-16 lg:px-24">
@@ -75,27 +81,30 @@ const ProjectPage = ({ scrollToHomePage, scrollToContactPage }) => {
             }
             transition={{ duration: 0.5, ease: 'easeInOut' }}
           >
-            {activeProject === index && (
-              <motion.div
-                className="absolute bottom-4 left-0 transform translate-x-4 w-full flex justify-start"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
-              >
-                <h2 className="text-4xl md:text-5xl lg:text-7xl font-extrabold uppercase whitespace-nowrap -ml-7 text-center">
-                  Project {index + 1}
-                </h2>
-              </motion.div>
-            )}
+           {activeProject === index && (
+  <motion.div
+    className="absolute bottom-4 left-0 w-full flex justify-center text-center"
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
+  >
+    <h2 className="text-4xl md:text-5xl lg:text-7xl font-extrabold uppercase whitespace-nowrap text-center">
+      {titles[index]}
+    </h2>
+  </motion.div>
+)}
+
           </motion.div>
         ))}
       </div>
 
       <div className="relative flex flex-col items-center text-center z-10 -mt-8 md:-mt-14 px-4">
-        <p className="text-center mb-8 text-gray-400 max-w-lg">
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.
-        </p>
-        <button className="px-8 py-3 border border-white text-white hover:bg-white hover:text-black transition-all uppercase font-semibold">
+        {activeProject !== null && (
+          <p className="text-center mb-8 text-gray-400 max-w-3xl">
+            {descriptions[activeProject]}
+          </p>
+        )}
+        <button className="px-8 py-3 border border-white text-white hover:bg-white hover:text-black transition-all uppercase font-semibold rounded-md">
           View Project
         </button>
       </div>

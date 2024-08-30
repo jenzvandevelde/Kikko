@@ -44,6 +44,12 @@ const Ipadprojectpage = ({ scrollToHomePage, scrollToContactPage }) => {
   };
 
   const images = [afbeelding1, afbeelding2, afbeelding3];
+  const titles = ['CRM', 'Mobile App', 'Website']; // Array with titles
+  const descriptions = [
+    "CRM: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.",
+    "Mobile App: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.",
+    "Website: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit."
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0f0f0f] via-[#2b2b2b] to-[#1b1b1b] text-white relative flex flex-col justify-center items-center overflow-hidden px-8 md:px-16 lg:px-24">
@@ -77,13 +83,13 @@ const Ipadprojectpage = ({ scrollToHomePage, scrollToContactPage }) => {
           >
             {activeProject === index && (
               <motion.div
-                className="absolute bottom-4 left-0 transform translate-x-4 w-full flex justify-start md:justify-center md:left-1/2 md:transform md:-translate-x-1/2 -ml-40 "
+                className="absolute bottom-4 left-0 transform translate-x-4 w-full flex justify-start md:justify-center md:left-1/2 md:transform md:-translate-x-1/2 -ml-40"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
               >
-                <h2 className="text-7xl  font-extrabold uppercase whitespace-nowrap -ml-7 md:ml-0 text-center">
-                  Project {index + 1}
+                <h2 className="text-7xl font-extrabold uppercase whitespace-nowrap -ml-7 md:ml-0 text-center">
+                  {titles[index]} {/* Dynamische titel */}
                 </h2>
               </motion.div>
             )}
@@ -92,10 +98,12 @@ const Ipadprojectpage = ({ scrollToHomePage, scrollToContactPage }) => {
       </div>
 
       <div className="relative flex flex-col items-center text-center z-10 -mt-8 md:-mt-14 px-4">
-        <p className="text-center mb-8 text-gray-400 max-w-lg">
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.
-        </p>
-        <button className="px-8 py-3 border border-white text-white hover:bg-white hover:text-black transition-all uppercase font-semibold">
+        {activeProject !== null && (
+          <p className="text-center mb-8 text-gray-400 max-w-lg">
+            {descriptions[activeProject]}
+          </p>
+        )}
+        <button className="px-8 py-3 border border-white text-white hover:bg-white hover:text-black transition-all uppercase font-semibold rounded-md">
           View Project
         </button>
       </div>

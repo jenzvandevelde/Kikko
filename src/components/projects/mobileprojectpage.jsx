@@ -44,6 +44,7 @@ const ProjectPage = ({ scrollToHomePage, scrollToContactPage }) => {
   };
 
   const images = [afbeelding1, afbeelding2, afbeelding3];
+  const titles = ['CRM', 'Mobile App', 'Website']; // Array met titels
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0f0f0f] via-[#2b2b2b] to-[#1b1b1b] text-white relative flex flex-col justify-center items-center overflow-hidden px-6 md:px-12 lg:px-16">
@@ -82,8 +83,8 @@ const ProjectPage = ({ scrollToHomePage, scrollToContactPage }) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
               >
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase text-center">
-                  Project {index + 1}
+                <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold uppercase text-center">
+                  {titles[index]} {/* Dynamische titel */}
                 </h2>
               </motion.div>
             )}
@@ -95,9 +96,10 @@ const ProjectPage = ({ scrollToHomePage, scrollToContactPage }) => {
         <p className="text-center mb-8 text-gray-400 max-w-lg hidden sm:block">
           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.
         </p>
-        <button className="px-8 py-3 border border-white text-white hover:bg-white hover:text-black transition-all uppercase font-semibold">
-          View Project
-        </button>
+        <button className="px-8 py-3 border border-white text-white hover:bg-white hover:text-black transition-all uppercase font-semibold rounded-md">
+  View Project
+</button>
+
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 flex justify-end items-center px-4 md:px-10 py-4 md:py-8">
