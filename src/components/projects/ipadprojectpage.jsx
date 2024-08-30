@@ -1,10 +1,12 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { motion } from 'framer-motion';
 import afbeelding1 from '../../assets/afbeelding1.png';
 import afbeelding2 from '../../assets/afbeelding2.png';
 import afbeelding3 from '../../assets/afbeelding3.png';
 
 const Ipadprojectpage = ({ scrollToHomePage, scrollToContactPage }) => {
+  const navigate = useNavigate(); // Initialize useNavigate
   const [activeProject, setActiveProject] = useState(1);
   const [inView, setInView] = useState([false, false, false]);
   const projectRefs = useRef([]);
@@ -41,6 +43,17 @@ const Ipadprojectpage = ({ scrollToHomePage, scrollToContactPage }) => {
 
   const handleProjectClick = (projectIndex) => {
     setActiveProject(projectIndex === activeProject ? null : projectIndex);
+  };
+
+  const handleViewProject = () => {
+    if (activeProject === 0) {
+      navigate('/crmpage'); // Navigate to CRM page when activeProject is 0
+    } else if (activeProject === 1) {
+      navigate('/mobile'); // Navigate to Mobile page when activeProject is 1
+    } else if (activeProject === 2) {
+      navigate('/movie'); // Navigate to Movie page when activeProject is 2
+    }
+    // Add more conditions here if needed for other projects
   };
 
   const images = [afbeelding1, afbeelding2, afbeelding3];
@@ -89,7 +102,7 @@ const Ipadprojectpage = ({ scrollToHomePage, scrollToContactPage }) => {
                 transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
               >
                 <h2 className="text-7xl font-extrabold uppercase whitespace-nowrap -ml-7 md:ml-0 text-center">
-                  {titles[index]} {/* Dynamische titel */}
+                  {titles[index]} {/* Dynamic title */}
                 </h2>
               </motion.div>
             )}
@@ -103,7 +116,10 @@ const Ipadprojectpage = ({ scrollToHomePage, scrollToContactPage }) => {
             {descriptions[activeProject]}
           </p>
         )}
-        <button className="px-8 py-3 border border-white text-white hover:bg-white hover:text-black transition-all uppercase font-semibold rounded-md">
+        <button
+          className="px-8 py-3 border border-white text-white hover:bg-white hover:text-black transition-all uppercase font-semibold rounded-md"
+          onClick={handleViewProject} // Add onClick handler for the button
+        >
           View Project
         </button>
       </div>
