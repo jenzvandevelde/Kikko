@@ -1,9 +1,19 @@
+/* styles.css */
+/* Zorg ervoor dat het scherm zwart is voordat de componenten worden geladen */
+body {
+  background-color: #000000;
+  margin: 0;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-color: #000000;
 }
+
+
 
 .logo {
   height: 6em;
@@ -40,6 +50,7 @@
 .read-the-docs {
   color: #888;
 }
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -61,4 +72,17 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
   border-radius: 8px; /* Rounded corners */
 } */
+@keyframes softFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
+.animate-softFadeInUp {
+  animation: softFadeInUp 1.5s ease-in-out forwards;
+}

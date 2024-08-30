@@ -153,19 +153,23 @@ const ContactPage = ({ projectPageRef }) => {
 
       </div>
 
-      {/* Footer */}
-      <footer className="text-center py-4 mt-8 text-[#dddddd] font-thin">
-        <p className="text-xs sm:text-xs">© 2024 Jens Van de Velde. All Rights Reserved.</p>
-      </footer>
+    
 
       {/* Scroll Up Indicator */}
-      <div
-        className="absolute bottom-4 right-4 flex flex-row items-center text-xs uppercase tracking-widest cursor-pointer"
-        onClick={() => projectPageRef.current.scrollIntoView({ behavior: 'smooth' })}
-      >
-        <div className="w-px h-8 bg-[#dddddd] -mt-36 -mr-9"></div>
-        <span className="ml-2 rotate-90 mb-5">Scroll</span>
-      </div>
+<div
+  className="absolute bottom-12 right-4 flex flex-row items-center text-xs uppercase tracking-widest cursor-pointer"
+  onClick={() => projectPageRef.current.scrollIntoView({ behavior: 'smooth' })}
+>
+  <div className="w-px h-8 bg-[#dddddd] -mt-40 -mr-2"></div>
+  <span className="-ml-5 rotate-90 mb-10">Scroll</span>
+</div>
+
+{/* Footer */}
+<footer className="text-center py-4 -mt-10 text-[#dddddd] font-thin">
+  <p className="text-xs sm:text-xs">© 2024 Jens Van de Velde. All Rights Reserved.</p>
+</footer>
+
+
     </div>
   );
 };

@@ -1,10 +1,12 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { motion } from 'framer-motion';
 import afbeelding1 from '../../assets/afbeelding1.png';
 import afbeelding2 from '../../assets/afbeelding2.png';
 import afbeelding3 from '../../assets/afbeelding3.png';
 
 const ProjectPage = ({ scrollToHomePage, scrollToContactPage }) => {
+  const navigate = useNavigate(); // Initialize useNavigate
   const [activeProject, setActiveProject] = useState(1);
   const [inView, setInView] = useState([false, false, false]);
   const projectRefs = useRef([]);
@@ -41,6 +43,18 @@ const ProjectPage = ({ scrollToHomePage, scrollToContactPage }) => {
 
   const handleProjectClick = (projectIndex) => {
     setActiveProject(projectIndex === activeProject ? null : projectIndex);
+  };
+
+  const handleViewProject = () => {
+    if (activeProject === 0) {
+      navigate('/crmpage'); // Navigate to CRM page when activeProject is 0
+    } else if (activeProject === 1) {
+      navigate('/mobile'); // Navigate to Mobile page when activeProject is 1
+    }
+    else if (activeProject === 2) {
+      navigate('/movie'); // Navigate to Mobile page when activeProject is 1
+    }
+    // Add more conditions here if needed for other projects
   };
 
   const images = [afbeelding1, afbeelding2, afbeelding3];
@@ -81,19 +95,18 @@ const ProjectPage = ({ scrollToHomePage, scrollToContactPage }) => {
             }
             transition={{ duration: 0.5, ease: 'easeInOut' }}
           >
-           {activeProject === index && (
-  <motion.div
-    className="absolute bottom-4 left-0 w-full flex justify-center text-center"
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
-  >
-    <h2 className="text-4xl md:text-5xl lg:text-7xl font-extrabold uppercase whitespace-nowrap text-center">
-      {titles[index]}
-    </h2>
-  </motion.div>
-)}
-
+            {activeProject === index && (
+              <motion.div
+                className="absolute bottom-4 left-0 w-full flex justify-center text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
+              >
+                <h2 className="text-4xl md:text-5xl lg:text-7xl font-extrabold uppercase whitespace-nowrap text-center">
+                  {titles[index]}
+                </h2>
+              </motion.div>
+            )}
           </motion.div>
         ))}
       </div>
@@ -104,7 +117,10 @@ const ProjectPage = ({ scrollToHomePage, scrollToContactPage }) => {
             {descriptions[activeProject]}
           </p>
         )}
-        <button className="px-8 py-3 border border-white text-white hover:bg-white hover:text-black transition-all uppercase font-semibold rounded-md">
+        <button 
+          className="px-8 py-3 border border-white text-white hover:bg-white hover:text-black transition-all uppercase font-semibold rounded-md"
+          onClick={handleViewProject} // Add onClick handler for the button
+        >
           View Project
         </button>
       </div>

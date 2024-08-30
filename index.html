@@ -2,9 +2,95 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <title>
+      Jens Van de Velde | Junior Web & Front-End Developer  | Portfolio
+    </title>
+
+    <!-- Meta description for SEO -->
+    <meta
+      name="description"
+      content="Discover the online portfolio of Jens Van de Velde, a Junior web and front-end Developer. Explore my projects and skills."
+    />
+
+    <!-- Keywords meta tag for SEO -->
+    <meta
+      name="keywords"
+      content="Jens Van de Velde, web developer, front-end, portfolio, web design, React developer"
+    />
+
+    <!-- Canonical link to avoid duplicate content issues -->
+    <link rel="canonical" href="https://www.jenzvandevelde.com" />
+
+    <!-- Favicon settings -->
+    <link rel="icon" href="/src/assets/portfoliowhite.png" type="image/png" />
+    <link
+      rel="shortcut icon"
+      href="/src/assets/portfoliowhite.png"
+      type="image/png"
+    />
+
+    <!-- Open Graph meta tags for social sharing -->
+    <meta property="og:title" content="Jens Van de Velde | Junior Web & Front-End Developer " />
+    <meta
+      property="og:description"
+      content="Check out the portfolio of Jens Van de Velde, a Junior web developer specializing in front-end development. Discover my recent projects and expertise."
+    />
+    <meta property="og:image" content="https://www.jenzvandevelde.com/assets/portfolio_image.png" />
+    <meta property="og:url" content="https://www.jenzvandevelde.com" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card meta tags for social sharing -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Jens Van de Velde | Junior Web & Front-End Developer" />
+    <meta
+      name="twitter:description"
+      content="Explore the portfolio of Jens Van de Velde, a Junior web developer with a focus on front-end development. Learn more about my work and skills."
+    />
+    <meta name="twitter:image" content="https://www.jenzvandevelde.com/assets/portfolio_image.png" />
+
+    <!-- Schema.org markup for rich snippets (sitelinks) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "url": "https://www.jenzvandevelde.com",
+        "name": "Jens Van de Velde | Web Developer & Front-End Specialist",
+        "alternateName": "Jenz Van de Velde Portfolio",
+        "sameAs": [
+          "https://www.linkedin.com/in/jens-van-de-velde-0a771b180",
+          "https://github.com/jensvandevelde"
+        ],
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.jenzvandevelde.com/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+
+    <!-- Structured data for personal profile -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Jens Van de Velde",
+        "url": "https://www.jenzvandevelde.com",
+        "image": "https://www.jenzvandevelde.com/assets/portfolio_image.png",
+        "sameAs": [
+          "https://www.linkedin.com/in/jens-van-de-velde-0a771b180",
+          "https://github.com/jensvandevelde"
+        ],
+        "jobTitle": "Web Developer & Front-End Specialist",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Freelance"
+        }
+      }
+    </script>
+
+    <!-- Preload key resources for faster loading -->
+    <link rel="preload" href="/src/main.jsx" as="script" />
   </head>
   <body>
     <div id="root"></div>

@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'xsm': '480px',  // Aangepaste breakpoint
+      },
       animation: {
         'slide-up': 'slide-up 1s ease-out forwards',
       },
